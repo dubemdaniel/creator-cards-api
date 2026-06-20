@@ -1,6 +1,8 @@
 if (!process.env.__ALREADY_BOOTSTRAPPED_ENVS) require('dotenv').config();
 
 const fs = require('fs');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./docs/swagger');
 const { createServer } = require('@app-core/server');
 const { createConnection } = require('@app-core/mongoose');
 
@@ -28,6 +30,17 @@ function setupEndpointHandlers(basePath) {
 
 ENDPOINT_CONFIGS.forEach((config) => {
   setupEndpointHandlers(config.path, config.options);
+});
+
+// Serve Swagger UI at /docs using Express app directly
+const app = server.getApp();
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'Creator Card API Documentation',
+}));
+app.get('/docs.json', (req, res) => {
+  res.json(swaggerSpec);
 });
 
 server.startServer();
