@@ -4,6 +4,9 @@
   "description": "Creator Card microservice API - Technical Assessment",
   "main": "app.js",
   "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0 <24.0.0"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "node --watch app.js"
