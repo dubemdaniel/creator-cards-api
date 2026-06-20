@@ -85,7 +85,7 @@ module.exports = createHandler({
   async handler(rc, helpers) {
     const payload = {
       slug: rc.params.slug,
-      access_code: rc.query.access_code,
+      access_code: rc.query.access_code ? rc.query.access_code.toUpperCase() : null,
     };
 
     const result = await retrieveCreatorCard(payload);
