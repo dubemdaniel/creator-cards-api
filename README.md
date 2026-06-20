@@ -28,7 +28,7 @@ https://creator-cards-api-eb9o.onrender.com
 ```bash
 # Clone and install
 git clone <repo-url>
-cd creator-card-api
+cd creator-cards-api
 npm install
 
 # Set environment variables
