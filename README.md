@@ -12,7 +12,7 @@ RESTful microservice for creating, retrieving, and deleting shareable creator pr
 ## Deployed Base URL
 
 ```
-https://your-app.onrender.com
+https://creator-cards-api-eb9o.onrender.com
 ```
 
 ## Endpoints
