@@ -32,6 +32,7 @@ ENDPOINT_CONFIGS.forEach((config) => {
 });
 
 const app = server.getApp();
+app.set('trust proxy', 1);
 app.get('/docs', (req, res) => {
   res.send(`<!DOCTYPE html>
 <html lang="en">
