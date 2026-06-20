@@ -65,7 +65,8 @@ app.get('/docs', (req, res) => {
 </html>`);
 });
 app.get('/docs.json', (req, res) => {
-  res.json(swaggerSpec);
+  const origin = `${req.protocol}://${req.get('host')}`;
+  res.json({ ...swaggerSpec, servers: [{ url: origin, description: 'Server' }] });
 });
 
 server.startServer();
